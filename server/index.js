@@ -4,11 +4,16 @@ const app = express();
 const router = express.Router();
 
 const PORT = process.env.SERVER_PORT;
-router.get("/", (req, res) => {
-  res.json({ "message": "Welcome to our Todo App" });
-});
+require("./routes/todos")(router);
 
 app.use("/", router);
+
+
+function errorHandler (err, req, res, next) { /*eslint-disable-line no-unused-vars*/
+  res.json({ "error": true,  message: err });
+}
+
+app.use(errorHandler);
 
 app.listen(PORT, ()=> {
   console.log(`Server running on PORT:${PORT}`); /*eslint-disable-line no-console*/
