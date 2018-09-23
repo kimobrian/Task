@@ -6,6 +6,9 @@ const router = express.Router();
 const PORT = process.env.SERVER_PORT;
 require("./routes/todos")(router);
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use("/", router);
 
 

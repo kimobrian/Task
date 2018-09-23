@@ -6,16 +6,23 @@
   "author": "kimobrian",
   "license": "MIT",
   "scripts": {
-    "lint:fix": "eslint --fix . --ext .js"
+    "start": "yarn migrate && node index.js",
+    "start:dev": "yarn migrate && nodemon index.js",
+    "lint:fix": "eslint --fix . --ext .js",
+    "migrate": "sequelize db:migrate",
+    "undo:migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "debug": "node --inspect index.js"
   },
   "dependencies": {
+    "cuid": "^2.1.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "sequelize": "^4.38.1"
   },
   "devDependencies": {
     "eslint": "^5.6.0",
-    "mysql": "^2.16.0",
+    "jsdoc": "^3.5.5",
+    "mysql2": "^1.6.1",
     "nodemon": "^1.18.4"
   }
 }
