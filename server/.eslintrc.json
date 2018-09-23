@@ -23,6 +23,10 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-var": "error",
+        "prefer-const": "error",
+        "prefer-arrow-callback": "warn",
+        "object-curly-spacing": ["error", "always"]
     }
 }
