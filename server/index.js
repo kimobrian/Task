@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const helmet = require("helmet");
 require("dotenv").config();
 const app = express();
 const router = express.Router();
@@ -9,6 +10,7 @@ const corsOptions = {
   optionsSuccessStatus: 200
 };
 
+app.use(helmet());
 app.use(cors(corsOptions));
 
 const PORT = process.env.SERVER_PORT;
